@@ -1,0 +1,23 @@
+plugins {
+    id 'base'
+}
+
+group = 'i.dsong'
+version = '0.0.1'
+
+
+configure(subprojects) { project->
+    group = 'i.dsong'
+
+    apply plugin: 'java'
+
+    repositories {
+        mavenLocal()
+    }
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_18
+        targetCompatibility = JavaVersion.VERSION_18
+    }
+
+}

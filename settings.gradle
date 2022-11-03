@@ -1,0 +1,5 @@
+
+rootProject.name = 'bumingbai'
+
+
+include 'jdk-lrn:lrn-01'
