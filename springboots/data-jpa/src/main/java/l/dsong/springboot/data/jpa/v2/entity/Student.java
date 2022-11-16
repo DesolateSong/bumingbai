@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 @ToString(callSuper = true)
 public class Student extends People {
 
+    @Column(name = "health_state", columnDefinition = "varchar(64)")
     private String healthState;
 
 }

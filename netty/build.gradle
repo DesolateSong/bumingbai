@@ -1,0 +1,27 @@
+plugins {
+    id 'base'
+}
+
+ext {
+    hutoolVersion = '5.8.9'
+    lombokVersion = '1.18.24'
+    nettyVersion = '4.1.84.Final'
+}
+
+
+configure(subprojects){project->
+    apply plugin: 'java'
+
+    dependencies {
+        compileOnly "org.projectlombok:lombok:$lombokVersion"
+        annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+        implementation "cn.hutool:hutool-all:$hutoolVersion"
+        implementation "io.netty:netty-all:$nettyVersion"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+}
