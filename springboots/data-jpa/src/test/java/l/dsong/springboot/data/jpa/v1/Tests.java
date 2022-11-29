@@ -2,10 +2,14 @@ package l.dsong.springboot.data.jpa.v1;
 
 import l.dsong.springboot.data.jpa.SimpleDataJPAApplication;
 import l.dsong.springboot.data.jpa.v1.entity.Teacher;
+import l.dsong.springboot.data.jpa.v1.repository.TeacherRepository;
 import l.dsong.springboot.data.jpa.v1.service.TeacherService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -61,6 +65,55 @@ public class Tests {
         condition.setName("张老师");
         List<Teacher> ls = teacherService.list(condition);
         ls.forEach(System.out::println);
+    }
+
+
+    @Test
+    public void idTest(){
+
+        Teacher condition = new Teacher();
+        condition.setId(1L);
+        condition.setName("IDBe1L");
+        condition.setSex("1");
+        teacherService.save(condition);
+
+
+    }
+
+    @Resource
+    private TeacherRepository teacherRepository;
+
+    @Test
+    public void pageTest1(){
+        Teacher condi = new Teacher();
+        condi.setName("张老师");
+
+        Page<Teacher> page = teacherRepository.findAll(
+                (Specification<Teacher>)     (root, query, cb)->{
+                    return cb.equal(root.get("name"), condi.getName());
+                }   ,
+                PageRequest.of(0,2, Sort.unsorted())
+        );
+
+        System.out.println(page.getTotalElements());
+        System.out.println(page.getNumber());
+        System.out.println(page.getTotalPages());
+        page.getContent().forEach(System.out::println);
+
+    }
+
+    @Test
+    public void pageTest2(){
+        Teacher te = new Teacher();
+        Page<Teacher> page = teacherRepository.findAll(
+                (Specification<Teacher>) (root, query, cb)->{
+                    return cb.conjunction();
+                },
+                PageRequest.of(0, 1, Sort.by("createTime"))
+        );
+
+        System.out.println(page.getTotalPages());
+        page.getContent().forEach(System.out::println);
     }
 
 }

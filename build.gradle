@@ -5,6 +5,10 @@ plugins {
 group = 'i.dsong'
 version = '0.0.1'
 
+ext{
+    junitVersion = '5.9.1'
+}
+
 
 configure(subprojects) { project->
     group = 'i.dsong'
@@ -18,6 +22,16 @@ configure(subprojects) { project->
     java {
         sourceCompatibility = JavaVersion.VERSION_18
         targetCompatibility = JavaVersion.VERSION_18
+    }
+
+    dependencies {
+        testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+        testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+
+    }
+
+    test{
+        useJUnitPlatform()
     }
 
 }

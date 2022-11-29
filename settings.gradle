@@ -1,10 +1,12 @@
 
 rootProject.name = 'bumingbai'
 
-
 include 'jdk-lrn:lrn-01'
 
 include 'springboots:data-jpa'
-
+include 'springboots:data-jpa-01'
 
 include 'netty:netty-01'
+include 'netty:netty-02'
+
+include 'hibernate:validator'
