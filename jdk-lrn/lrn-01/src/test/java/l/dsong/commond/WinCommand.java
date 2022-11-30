@@ -68,9 +68,10 @@ public class WinCommand {
         try {
 //            executeCommand(new String[]{"java", "-version"}, "e:\\temp");
 //            executeCommand(new String[]{"echo", "%MYSQL_HOME%"}, "e:\\temp");
-            executeCommand(new String[]{"mysqldump", "-uroot", "-proot", "--hex-blob", "mydb", "-r", "\"mydb1.sql\""}, "e:\\temp");
+//            executeCommand(new String[]{"mysqldump", "-uroot", "-proot", "--hex-blob", "mydb", "-r", "\"mydb1.sql\""}, "e:\\temp");
 
-            executeCommand(new String[]{"7z","a","mydb1.zip" , "mydb1.sql"}, "e:\\temp");
+//            executeCommand(new String[]{"7z","a","mydb1.zip" , "mydb1.sql"}, "e:\\temp");
+            executeCommand(new String[]{"ipconfig"}, "e:\\temp");
 
 //            execCommand("cmd /C del /a/f/q " + zipFileName, baseFolder);
         } catch (IOException e) {
@@ -95,14 +96,28 @@ public class WinCommand {
             try (BufferedReader bufr = new BufferedReader(new InputStreamReader(this.in))) {
                 String line = null;
                 while ((line = bufr.readLine()) != null) {
-                    if (error) {
+//                    if (error) {
                         System.out.println(line);
-                    }
+//                    }
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Test
+    public void fileTest(){
+
+        File file= new File("D:\\VM_OSs\\CentOS-Stream-9-latest-x86_64-boot.iso");
+
+        System.out.println(file.length());
+
+        // 866_123_776
+        // 524_288_000
+
+        System.out.println(1%500);
+
     }
 
 }
