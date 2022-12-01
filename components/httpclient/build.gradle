@@ -1,0 +1,9 @@
+plugins{
+    id 'java'
+}
+
+dependencies {
+    implementation 'org.apache.httpcomponents.client5:httpclient5:5.2'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.0.0'
+}

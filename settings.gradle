@@ -10,3 +10,6 @@ include 'netty:netty-01'
 include 'netty:netty-02'
 
 include 'hibernate:validator'
+
+
+include 'components:httpclient'
