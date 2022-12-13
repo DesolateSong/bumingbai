@@ -8,6 +8,7 @@ include 'springboots:data-jpa-01'
 
 include 'netty:netty-01'
 include 'netty:netty-02'
+include 'netty:netty-03'
 
 include 'hibernate:validator'
 

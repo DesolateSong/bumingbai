@@ -11,7 +11,7 @@ public class L01 {
         System.out.println(a);
 
 
-        Object s = new String("333333");
+        Object s = "333333";
         if(s instanceof String b){
             System.out.println(b);
         }
